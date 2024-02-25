@@ -1,3 +1,5 @@
+A project created using the latest frontend trends. ReactJS, NextJS, TypeScript, TRPC, EsLint, Skeletons, SSR/CSR/Partial Prerendering.
+
 # Create T3 App
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
