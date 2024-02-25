@@ -4,10 +4,10 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { api } from "~/utils/api";
 import Image from "next/image";
-import { LoadingPage } from "~/components/loadingSpinner";
 import type { ReactElement } from "react";
 import Post from "~/components/post";
 import { FeedSkeleton } from "~/components/skeletons";
+import type { Post as postType } from "@prisma/client";
 
 dayjs.extend(relativeTime);
 
@@ -38,7 +38,7 @@ const Feed = ({ image }: { image: string }) => {
 
   return (
     <FeedWrapper>
-      {data.map((post, i) => (
+      {data.map((post: postType, i: number) => (
         <div key={i} className="flex h-48 items-center border-y-2">
           <Image
             src={image}
