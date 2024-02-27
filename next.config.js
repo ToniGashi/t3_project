@@ -25,6 +25,9 @@ const config = {
       },
       {
         hostname: 'media.istockphoto.com'
+      },
+      {
+        hostname: 'static.vecteezy.com'
       }
     ]
   }

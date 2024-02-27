@@ -10,7 +10,7 @@ const Post = () => {
 
   return (
     <div className="flex w-full justify-center text-teal-300 ">
-      <div className="flex h-48 items-center border-2 md:w-2/3">
+      <div className="flex h-48 w-full items-center border-2 md:w-2/3">
         <Image
           src={user.imageUrl}
           width={48}

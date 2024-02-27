@@ -1,12 +1,23 @@
 "use client";
 
 import { useState } from "react";
+import { api } from "~/utils/api";
 
 const InputField = () => {
   const [inputText, setInputText] = useState("");
-  const handleKeywordKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const { mutate, isLoading } = api.post.postPost.useMutation({
+    onSuccess: async () => {
+      await ctx.post.invalidate();
+    },
+  });
+
+  const ctx = api.useContext();
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key == "Enter") {
-      console.log(inputText);
+      const resp = mutate({ content: inputText });
+      console.log(resp);
+      setInputText("");
     }
   };
 
@@ -15,7 +26,8 @@ const InputField = () => {
       className="w-full bg-transparent outline-none"
       placeholder="Type here!"
       onChange={(e) => setInputText(e.target.value)}
-      onKeyUp={handleKeywordKeyPress}
+      value={inputText}
+      onKeyUp={handleKeyPress}
     ></input>
   );
 };
