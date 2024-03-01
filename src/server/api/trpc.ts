@@ -12,7 +12,7 @@ import { type CreateNextContextOptions } from "@trpc/server/adapters/next";
 import superjson from "superjson";
 import { ZodError } from "zod";
 
-import { db } from "~/server/db";
+import { prisma } from "../db";
 
 /**
  * This is the actual context you will use in your router. It will be used to process every request
@@ -29,7 +29,7 @@ export const createTRPCContext = (opts: CreateNextContextOptions) => {
 
   return {
     currentUserId,
-    db,
+    prisma,
   };
 };
 
@@ -59,7 +59,7 @@ const t = initTRPC.context<typeof createTRPCContext>().create({
  * 3. ROUTER & PROCEDURE (THE IMPORTANT BIT)
  *
  * These are the pieces you use to build your tRPC API. You should import these a lot in the
- * "/src/server/api/routers" directory.
+ * "/server/api/routers" directory.
  */
 
 /**

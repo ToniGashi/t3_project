@@ -2,10 +2,10 @@ import React from "react";
 
 export const LoadingSpinner = ({ size = 40 }: { size?: number }) => {
   return (
-    <div role="status">
+    <div role="status" className="text-teal-300">
       <svg
         aria-hidden="true"
-        className="animate-spin fill-blue-600 text-gray-200 dark:text-gray-600"
+        className="animate-spin fill-teal-300 text-gray-200 dark:text-gray-600"
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -27,7 +27,7 @@ export const LoadingSpinner = ({ size = 40 }: { size?: number }) => {
 };
 
 export const LoadingPage = () => (
-  <div className="w-screnn flex h-screen items-center justify-center">
+  <div className="flex h-screen w-screen items-center justify-center ">
     <LoadingSpinner size={100} />
   </div>
 );

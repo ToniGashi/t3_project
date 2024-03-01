@@ -1,11 +1,17 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Image from "next/image";
-import { useUser } from "@clerk/nextjs";
 import InputField from "./inputField";
 import { PostSkeleton } from "./skeletons";
 
-const Post = () => {
-  const { user } = useUser();
-
+const Post = ({
+  notify,
+  user,
+}: {
+  notify?: (message: string, status: "success" | "error") => void;
+  user: any;
+}) => {
   if (!user) return <PostSkeleton />;
 
   return (
@@ -18,7 +24,7 @@ const Post = () => {
           alt="account pic"
           className="m-4 rounded-full"
         />
-        <InputField />
+        <InputField notify={notify} />
       </div>
     </div>
   );
